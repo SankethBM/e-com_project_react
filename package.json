@@ -1,0 +1,33 @@
+{
+  "name": "proshop-v2",
+  "version": "2.0.0",
+  "description": "eCommerce application built with MERN stack",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SankethBM/e-com_project_react.git"
+  },
+  "author": "Sanketh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SankethBM/e-com_project_react/issues"
+  },
+  "homepage": "https://github.com/SankethBM/e-com_project_react#readme",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongodb": "^6.13.0",
+    "mongoose": "^8.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "dotenv": "^16.4.7",
+    "nodemon": "^3.1.9"
+  }
+}
