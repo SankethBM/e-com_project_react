@@ -21,17 +21,17 @@ const CartScreen = () => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  const addToCartHandler = async(product, qty) => {
-    dispatch(addToCart({...product, qty}))
-  }
+  const addToCartHandler = (product, qty) => {
+    dispatch(addToCart({ ...product, qty }));
+  };
 
-  const removeFromCartHandler = async(id) => {
-    dispatch(removeFromCart(id))
-  }
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
 
   const chechoutHandler = () => {
-    navigate('/login?redirect=/shipping')
-  }
+    navigate("/login?redirect=/shipping");
+  };
 
   return (
     <Row>
@@ -57,7 +57,9 @@ const CartScreen = () => {
                     <Form.Control
                       as="select"
                       value={item.qty}
-                      onChange={(e) => addToCartHandler(item, Number(e.target.value))}
+                      onChange={(e) =>
+                        addToCartHandler(item, Number(e.target.value))
+                      }
                     >
                       {[...Array(item.countInStock).keys()].map((x) => (
                         <option key={x + 1} value={x + 1}>
@@ -67,7 +69,11 @@ const CartScreen = () => {
                     </Form.Control>
                   </Col>
                   <Col md={2}>
-                    <Button type="button" variant="light" onClick={() => removeFromCartHandler(item._id)}>
+                    <Button
+                      type="button"
+                      variant="light"
+                      onClick={() => removeFromCartHandler(item._id)}
+                    >
                       <FaTrash />
                     </Button>
                   </Col>
@@ -91,7 +97,12 @@ const CartScreen = () => {
                 .toFixed(2)}
             </ListGroupItem>
             <ListGroupItem>
-              <Button type="button" className="btn-block" disabled={cartItems.lenght === 0} onClick={chechoutHandler()}>
+              <Button
+                type="button"
+                className="btn-block"
+                disabled={cartItems.lenght === 0}
+                onClick={chechoutHandler}
+              >
                 Proceed to Check Out
               </Button>
             </ListGroupItem>
