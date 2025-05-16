@@ -107,7 +107,10 @@ const ProductListScreen = () => {
               ))}
             </tbody>
           </Table>
-          <Paginate pages={data.pages} page={data.page} isAdmin={true} />
+
+          <div className="d-flex justify-content-center">
+            <Paginate pages={data.pages} page={data.page} isAdmin={true} />
+          </div>
         </>
       )}
     </>
